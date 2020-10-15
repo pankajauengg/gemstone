@@ -1,0 +1,225 @@
+<New>:
+    name_py:name
+    hardness:hardness
+    transparency: transparency
+    minRefraction:minRefraction
+    birefringence:birefringence
+    dispersion:dispersion
+    pleochronism:pleochronism
+    thermalSensitivity:thermalSensitivity
+    criticalAngle:criticalAngle
+    mLG:mLG
+    polishing:polishing
+    others:others
+    selGem:SelGem
+    my:my
+    #link:link
+
+    canvas:
+        Rectangle:
+            pos: root.right-205-20, root.top -205-20
+            size: 210,210         
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "sources/images/6.jpg" 
+    Button:
+        text: 'Back'
+        size_hint: None, None
+        pos: 10,10
+        size: 80,40
+        on_release: root.manager.current = 'Rec'
+
+    Button:
+        text: 'Save'
+        size_hint: None, None
+        pos: 650,200
+        size: 80,40
+        on_release: root.SaveDatabase()
+
+
+    Button:
+        id: my
+       # text: 'selection/giphy.gif'
+        pos:  root.right-200-20, root.top -200-20
+        size: 200, 200
+        size_hint: None, None
+        on_release: 
+            app.root.current = "file" 
+            root.manager.transition.direction ="left"
+        Image:
+            id: SelGem
+            source: 'database/Choose.gif'
+            size_hint: None, None
+            size: 200, 200
+            pos:  root.right-200-20, root.top -200-20
+ 
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: 500,400
+        pos: 20,50
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+            Label:
+                
+                text: "Name:-"
+                size_hint_x: 0.3
+                halign: 'left'
+                valign: 'center'
+                text_size: self.size
+            TextInput:
+                id: name
+                size_hint_x: 0.7
+                hint_text:"Name"
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+            Label:
+                text: "Hardness"
+                
+                size_hint_x: 0.3
+                halign: 'left'
+                text_size: self.size
+                valign: 'center'
+            TextInput:
+                id: hardness
+                size_hint_x: 0.7
+                hint_text:"Hardness"
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 1
+            Label:
+                text: "Transparency:-"
+                size_hint_x: 0.3
+                halign: 'left'
+                text_size: self.size
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7
+                id:transparency
+                hint_text:"Transparency"
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Min. Refraction:-"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7
+                id: minRefraction     
+                hint_text:"Min. Refraction"
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Birefringence:-"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                hint_text:"Birefringence"
+                id: birefringence
+
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Dispersion:-"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                id: dispersion
+                hint_text: "Dispersion"
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Pleochronism"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                id: pleochronism
+                hint_text:"Pleochronism"
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Thermal Sensitivity:-"
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                hint_text:"Thermal Sensitivity"
+                id: thermalSensitivity
+        
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "Critical Angle:-"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                id: criticalAngle
+                hint_text: "Critical Angle"
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: "MLG-UT"
+                
+                halign: 'left'
+                text_size: self.size
+                size_hint_x: 0.3
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7  
+                hint_text: "MLG-UT"
+                id: mLG
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 2
+            Label:
+                text: "Polishing Recomm:-"
+                
+                size_hint_x: 0.3
+                halign: 'left'
+                text_size: self.size
+                valign: 'center'
+            TextInput:
+                size_hint_x: 0.7 
+                hint_text: "Polishing Recomm"  
+                id: polishing
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 2
+            
+            Label:
+                text: "Others:-"
+                size_hint_x: 0.3
+                halign: 'left'
+                text_size: self.size
+                valign: 'center'
+               
+            TextInput:
+                size_hint_x: 0.7
+                id: others
+                hint_text: "Others"             

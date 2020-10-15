@@ -1,0 +1,55 @@
+<RVScreen>:
+    id: Rv
+    name: "Rec"
+    BoxLayout:
+        orientation: "vertical"
+        RV:
+         
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: None, None
+            size: 640, 50
+            Button:
+                text: 'Home'
+                size_hint: None, None
+                size: 140, 50
+                on_release: root.manager.current = 'main'
+            Button:
+                text: 'ADD New'
+                size_hint: None, None
+                size: 140, 50
+                on_release: root.manager.current = 'new'
+
+<RecycleViewRow>:
+    orientation: 'vertical'
+    
+    BoxLayout:
+        orientation:'vertical'
+        size_hint: None, None
+        Button:
+            
+            #text: root.text
+            background_normal:root.loc1
+            on_press: app.root.go_to_Sel(root.id1)
+                
+            size_hint: None, None
+            size: 200,200
+        
+        Button:
+            background_normal:root.loc2
+            on_press: app.root.go_to_Sel(root.id2)
+            size_hint: None, None
+            size: 200,200  
+
+<RV>:
+    viewclass: 'RecycleViewRow'
+    RecycleBoxLayout:
+        id: layout
+        default_size: dp(200), dp(400)
+        default_size_hint: None, None
+        size_hint_y: None
+        size_hint_x: None
+        height: self.minimum_height
+        width: self.minimum_width
+        orientation: "horizontal"
+        pos_hint: None, None 

@@ -1,0 +1,61 @@
+<Filechooser>: 
+      
+    label: label  
+    selGem: SelGem
+    my:my
+
+
+            
+ #   FileChooserIconView: 
+ #       canvas.before: 
+  #          Color: 
+   #             rgb: .4, .5, .5
+        
+ #       on_selection: root.select(*args) 
+
+      
+    BoxLayout: 
+        orientation: "horizontal"
+        # Creating list view one side 
+
+        BoxLayout:
+        #    size: root.size
+            size_hint_x: .5
+            pos: root.pos
+            orientation: "vertical"
+            FileChooserIconView:
+                id: FileChooserIconView
+                on_selection: root.select(*args) 
+
+        Button:
+            id: my
+            text: 'selection/giphy.gif'
+            pos:  root.right-200-20, root.top -200-20
+            size: 200, 200
+            size_hint: None, None
+            on_release: 
+                app.root.sel(SelGem.source)
+                
+                app.root.current = "new" 
+                
+                root.manager.transition.direction ="left"
+            Image:
+                id: SelGem
+                source: my.text
+                size_hint: None, None
+                size: 200, 200
+                pos:  root.right-200-20, root.top -200-20
+  
+
+
+  
+    # Adding label 
+    Label: 
+        id: label 
+        size_hint_y: .1
+        canvas.before: 
+            Color: 
+                rgb: .5, .5, .4
+            Rectangle: 
+                pos: self.pos 
+                size: self.size

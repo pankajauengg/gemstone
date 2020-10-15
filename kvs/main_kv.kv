@@ -1,0 +1,156 @@
+<MainWindow>:
+    btn_mot_py:btn_mot_kv
+    btn_pump_py:btn_pump_kv
+    img:my
+    
+    
+    canvas:
+        Rectangle:
+            pos: root.right-205-20, root.top -205-20
+            size: 210,210  
+        
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: self.BC
+    
+    
+    GridLayout:
+       # orientation: 'vertical'
+        size_hint_x: None
+        size_hint_y: None
+        height: 200
+        width: 250
+        pos: 0, 270
+        rows: 2
+        cols: 2
+        padding: 10
+        spacing: 10
+        Label:
+            text: "Angle:-"
+            bold: True
+            font_name: "Roboto-Bold.ttf"
+           
+            font_size:  26
+          
+    
+        Label:
+            text: '234' 
+            bold: True
+            font_size:  80
+           
+
+        Label:
+            text: "RPM:-"
+            bold: True
+            font_size:  26
+           
+
+        Label:
+            id: rpmval
+            text: '0'
+            bold: True
+           
+            font_size:  80
+            
+
+
+
+    Button:
+        id: bx
+        text: 'Config'
+        #pos: root.right - self.width , root.top - self.height
+        pos: 10,10
+        size: 80,40
+        size_hint: None, None
+        on_release: app.open_settings()
+        #background_normal: '6.jpg'    
+
+    
+    Button:
+        id: my
+        text: 'selection/giphy.gif'
+        pos:  root.right-200-20, root.top -200-20
+        size: 200, 200
+        size_hint: None, None
+        on_release: 
+            app.root.current = "Rec" 
+            root.manager.transition.direction ="left"
+        Image:
+            id: SelGem
+            source: my.text
+            size_hint: None, None
+            size: 200, 200
+            pos:  root.right-200-20, root.top -200-20
+        
+    BoxLayout:
+        orientation:'vertical'
+        size_hint_x: None
+        size_hint_y: None
+        height: 80
+        width: 500
+        pos: 150, 30
+        
+
+       
+        ProgressBar:
+            id: pgb
+            value: 0
+            min: 0
+            max: 600
+           
+        Slider:
+            id: slider
+            min: 1
+            max: 600
+            step: 1
+            background_width: 45
+            cursor_height: "60dp"
+            cursor_width: "30sp"
+           
+        Label:
+            text: 'SetRPM: {}'.format(slider.value)
+            font_size:  26
+            bold: True
+            pos: 200,100
+    
+    GridLayout:
+        size_hint_x: None
+        size_hint_y: None
+        height: 40
+        width: 600
+        pos: 100, 150
+        rows: 1
+        cols: 2
+        padding: 10
+        spacing: 10
+        
+        
+        AnchorLayout: 
+            anchor_x: 'left'
+            anchor_y: 'center'
+            Button:
+                id: btn_mot_kv
+                background_normal: 'sources/images/iconfinder_Stop1Normal_22944.png'
+                background_down: 'sources/images/iconfinder_Stop1Disabled_22942.png'
+          #  pos:  root.right-200-20, root.top -200-20
+           # size: 40,40
+                on_press: root.btn_clk_mot()
+                pos_hint: None,None
+                size_hint: None, None
+
+       
+        AnchorLayout: 
+            anchor_x: 'right'
+            anchor_y: 'center'
+            Button:
+                id: btn_pump_kv
+                background_normal: 'sources/images/iconfinder_Stop1Normal_22944.png'
+                background_down: 'sources/images/iconfinder_Stop1Disabled_22942.png'
+          #  pos:  root.right-200-20, root.top -200-20
+           # size: 40,40
+                on_press: root.btn_clk_pump()
+                pos_hint: None,None
+                size_hint: None, None  
+           
